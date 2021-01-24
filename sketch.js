@@ -1,8 +1,9 @@
 
-//const Engine = Matter.Engine;
-//const World = Matter.World;
-//const Bodies = Matter.Bodies;
-//const Body = Matter.Body;
+const Engine = Matter.Engine;
+const World = Matter.World;
+const Bodies = Matter.Bodies;
+const Body = Matter.Body;
+const Constraint = Matter.Constraint;
 
 var block1, block2, block3, block4, block5, blcok6, block7, block8, block9, stone, platform;
 var slingshot;
@@ -10,7 +11,7 @@ var slingshot;
 var stoneImg;
 
 function preload() {
-    stoneImg = loadImage("sprite/polygon.png");
+    stoneImg = loadImage("polygon.png");
 }
 
 function setup() {
@@ -23,7 +24,7 @@ function setup() {
 
     block1 = new Block(330,235,30,40);
     block2 = new Block(360,235,30,40);
-    block3 = new Blcok(390,235,30,40);
+    block3 = new Block(390,235,30,40);
     block4 = new Block(420,235,30,40);
     block5 = new Block(450,235,30,40);
 
@@ -35,10 +36,11 @@ function setup() {
 
     platform = new Platform(390,200,200,10);
 
-    slingshot = new SlingShot(50,200,10,10);
+    stone = new Stone(50,200,10,10);
 
-    stone = new Stone(50,200,10,10)
+    slingshot = new SlingShot(stone.body,{x:10,y:10});
 }
+    
 
 function draw() {
     rectMode(CENTER);
@@ -66,6 +68,7 @@ function mouseDragged(){
 	
 	function mouseReleased(){
     slingshot.fly();
+    }
     
     function keyPressed() {
         if (keyCode===32) {

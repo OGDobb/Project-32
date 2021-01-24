@@ -6,7 +6,7 @@ class Stone{
             friction:1,
             density:1.2
         }
-        this.body = Bodies.hexagon(x, y, width, height, options);
+        this.body = Bodies.polygon(x, y, width, height, options);
         this.width = width;
         this.height = height;
         this.image = loadImage("sprites/polygon.png");

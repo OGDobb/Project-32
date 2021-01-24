@@ -9,7 +9,7 @@ class Block{
         this.body = Bodies.rectangle(x, y, width, height, options);
         this.width = width;
         this.height = height;
-        //this.image = loadImage("sprites/stone.png");
+        this.image = loadImage("stone.jpg");
         World.add(world, this.body);
       }
       display(){
@@ -36,6 +36,7 @@ class Block{
       }
       calculateScore(){
         if (this.Visibility<0 && this.Visibility>-105){
-          score=++;
+          score++;
         }
     }
+  }
