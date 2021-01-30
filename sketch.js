@@ -10,6 +10,8 @@ var slingshot;
 
 var stoneImg;
 
+var score=0;
+
 function preload() {
     stoneImg = loadImage("polygon.png");
 }

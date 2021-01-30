@@ -18,11 +18,11 @@ class Block{
         //push();
         translate(this.body.position.x, this.body.position.y);
         rotate(angle);
-        imageMode(CENTER);
-        image(this.image, 0, 0, this.width, this.height);console.log(this.body.speed);
+       
     
         if (this.body.speed<3) {
-          super.display();
+          imageMode(CENTER);
+          image(this.image, 0, 0, this.width, this.height);console.log(this.body.speed);
         }
         else{
           World.remove(world,this.body);
