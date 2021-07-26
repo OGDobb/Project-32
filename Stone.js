@@ -1,5 +1,5 @@
 class Stone{
-    constructor(x,y,options){
+    constructor(x,y,width,height){
         var options = {
             isStatic:false,
             restitution:0,
@@ -9,7 +9,7 @@ class Stone{
         this.body = Bodies.polygon(x, y, width, height, options);
         this.width = width;
         this.height = height;
-        this.image = loadImage("sprites/polygon.png");
+        this.image = loadImage("polygon.png");
         World.add(world, this.body);
       }
       display(){

@@ -36,11 +36,11 @@ function setup() {
 
     block9 = new Block(390,155,30,40);
 
-    platform = new Platform(390,200,200,10);
+    platform = new Platform(600,300,1200,10);
 
-    stone = new Stone(50,200,10,10);
+    stone = new Stone(50,200,50,50);
 
-    slingshot = new SlingShot(stone.body,{x:10,y:10});
+    slingshot = new SlingShot(stone.body,{x:100,y:200});
 }
     
 
