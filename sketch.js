@@ -61,7 +61,17 @@ function draw() {
     stone.display();
 
     text("score:"+score,1000,50);
+    block1.calculateScore();
+    block2.calculateScore();
+    block3.calculateScore();
+    block4.calculateScore();
+    block5.calculateScore();
+    block6.calculateScore();
+    block7.calculateScore();
+    block8.calculateScore();
+    block9.calculateScore();
 
+    getTime();
 }
 
 function mouseDragged(){
@@ -76,4 +86,23 @@ function mouseDragged(){
         if (keyCode===32) {
             slingshot.attach(bird.body);
         }
+    }
+
+    async function getTime(){
+        var response = await fetch("https://worldtimeapi.org/api/timezone/America/Los_Angeles");
+        console.log(response);
+        var responseData = await response.json();
+        console.log(responseData);
+        var dateTime = responseData.datetime;
+        console.log(dateTime);
+        var Hour = dateTime.slice(11,13);
+        console.log(Hour);
+        if (Hour>6&&Hour<18){
+            backgroundImg="nightime.jpg";
+        }
+        else
+        {
+            backgroundImg="daytime.jpg";
+        }
+    
     }
