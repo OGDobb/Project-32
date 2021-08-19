@@ -12,12 +12,20 @@ var stoneImg;
 
 var score=0;
 
+var backgroundImg;
+
 function preload() {
+
     stoneImg = loadImage("polygon.png");
+
+    getTime();
+    
 }
 
 function setup() {
     var canvas = createCanvas(1200,400);
+
+    
 
     engine = Engine.create();
     world = engine.world;
@@ -41,12 +49,19 @@ function setup() {
     stone = new Stone(50,200,50,50);
 
     slingshot = new SlingShot(stone.body,{x:100,y:200});
+
+    
 }
     
 
 function draw() {
+
     rectMode(CENTER);
-    background(0);
+
+    if(backgroundImg) {
+        background(backgroundImg);
+    }
+    
     block1.display();
     block2.display();
     block3.display();
@@ -71,7 +86,7 @@ function draw() {
     block8.calculateScore();
     block9.calculateScore();
 
-    getTime();
+    
 }
 
 function mouseDragged(){
@@ -88,7 +103,7 @@ function mouseDragged(){
         }
     }
 
-    async function getTime(){
+     async function getTime(){
         var response = await fetch("https://worldtimeapi.org/api/timezone/America/Los_Angeles");
         console.log(response);
         var responseData = await response.json();
@@ -98,11 +113,10 @@ function mouseDragged(){
         var Hour = dateTime.slice(11,13);
         console.log(Hour);
         if (Hour>6&&Hour<18){
-            backgroundImg="nightime.jpg";
+           backgroundImg=loadImage("daytime.jpg")
         }
         else
         {
-            backgroundImg="daytime.jpg";
-        }
+            backgroundImg=loadImage("nightime.jpg")        }
     
     }
