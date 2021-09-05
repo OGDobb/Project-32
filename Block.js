@@ -23,7 +23,7 @@ class Block{
          
        
     
-        if (this.body.speed<4) {
+        if (this.body.speed<5) {
           imageMode(CENTER);
           image(this.image, 0, 0, this.width, this.height);
         }
